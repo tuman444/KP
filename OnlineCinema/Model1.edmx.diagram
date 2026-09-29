@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="62136c85ef724ec1b14a77ee0a23f2df" Name="Diagram1">
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.favorites" Width="1.5" PointX="8.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.genres" Width="1.5" PointX="0.75" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.movie_persons" Width="1.5" PointX="8.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.movies" Width="1.5" PointX="3" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.person_roles" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.persons" Width="1.5" PointX="3.75" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.ratings" Width="1.5" PointX="8.25" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.reviews" Width="1.5" PointX="11.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.roles" Width="1.5" PointX="3.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.Users" Width="1.5" PointX="6" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="OnlineCinemaDBModel.watch_history" Width="1.5" PointX="11.25" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_favorites_movie" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_favorites_user" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_movie_persons_movie" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_movie_persons_person" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_movie_persons_role" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_movies_added_by" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_ratings_movie" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_reviews_movie" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_watch_history_movie" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_ratings_user" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_reviews_user" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_users_role" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.FK_watch_history_user" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.movie_genres" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.user_genre_preferences" ManuallyRouted="false" />
+        <AssociationConnector Association="OnlineCinemaDBModel.user_person_preferences" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
