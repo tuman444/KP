@@ -20,6 +20,5 @@ namespace OnlineCinema
             }
             return _db;
         }
-        public static Users AuthUser = null;
     }
 }

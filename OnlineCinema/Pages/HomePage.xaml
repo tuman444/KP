@@ -1,0 +1,59 @@
+﻿<Page x:Class="OnlineCinema.Pages.HomePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OnlineCinema.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Главная"
+      Background="{DynamicResource BackgroundBrash}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <!-- TextChanged: при каждом вводе символа перезагружаем список -->
+            <TextBox x:Name="SearchBox" Width="280" Height="35" Margin="0,0,12,0" 
+                     VerticalContentAlignment="Center" ToolTip="Поиск по названию" TextChanged="Filter_Changed"/>
+            <!-- DisplayMemberPath: что показывать в списке; SelectedValuePath: что считать значением -->
+            <ComboBox x:Name="GenreCombo" Width="200" Height="35"
+                      VerticalContentAlignment="Center"
+                      DisplayMemberPath="name" SelectedValuePath="id"
+                      ToolTip="Фильтр по жанру" SelectionChanged="Filter_Changed" />
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="MovieList">
+                <!-- WrapPanel: карточки идут в ряд и переносятся на следующую строку -->
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Width="180" Margin="0,0,16,16" CornerRadius="8" Background="{DynamicResource HeaderBrush}"
+                                Cursor="Hand" Tag="{Binding Id}" MouseLeftButtonUp="Card_Click">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold"
+                                           TextWrapping="Wrap" Margin="10,8,10,0" />
+                                <TextBlock Text="{Binding Info}" FontSize="11pt" TextWrapping="Wrap"
+                                           Foreground="{DynamicResource SecondaryTextBrush}"
+                                           Margin="10,2,10,10" />
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+
+        <TextBlock x:Name="EmptyText" Grid.Row="1" Text="Фильмы не найдены" FontSize="16"
+                   HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" 
+                   Foreground="{DynamicResource SecondaryTextBrush}"/>
+    </Grid>
+</Page>
