@@ -5,15 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OnlineCinema"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Онлайн-кинотеатр" Height="700" Width="1100"
+        MinHeight="600" MinWidth="900"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource BackgroundBrash}"
+        Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="55"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" >
-            
-        </StackPanel>
+        <Grid Grid.Row="0" Background="{DynamicResource HeaderBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Шапка -->
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="BackBuuton" Content="❮" MinWidth="45" Visibility="Collapsed" ToolTip="Назад" Click="BackButton_Click"/>
+                <Button Content="Кинотеатр" ToolTip="На главную" Click="NavHome_Click"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button Content="Каталог" ToolTip="Все фильмы" Click="NavHome_Click" />
+                <Button Content="Избранное" ToolTip="Избранные фильмы" Click="NavFavorites_Click" />
+                <Button Content="История" ToolTip="История просмотров" Click="NavHistory_Click" />
+                <Button Content="Рекомендации" ToolTip="Подобрано для вас" Click="NavRecommendations_Click" />
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="ThemeButton" Content="🌙" Width="45" ToolTip="Сменить тему" Click="ThemeButton_Click"/>
+                <Button x:Name="AuthButton" Content="Войти" ToolTip="Вход/Личный кабинет" Click="AuthButton_Click"/>
+            </StackPanel>
+        </Grid>
+        
+        <!-- Контент -->
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+
+        
+        <!--Нижняя панель-->
+        <Grid Grid.Row="2" Background="{DynamicResource HeaderBrush}">
+            <TextBlock x:Name="DateTimeNow" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,16,0" Foreground="{DynamicResource SecondaryTextBrush}"/>
+        </Grid>
     </Grid>
 </Window>
