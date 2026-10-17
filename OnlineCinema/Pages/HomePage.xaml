@@ -27,7 +27,7 @@
         </StackPanel>
 
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
-            <ItemsControl x:Name="MovieList">
+            <ItemsControl x:Name="MoviesList">
                 <!-- WrapPanel: карточки идут в ряд и переносятся на следующую строку -->
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
