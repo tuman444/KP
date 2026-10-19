@@ -23,12 +23,15 @@
                     <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,4,0,20" 
                              HorizontalContentAlignment="Center" ToolTip="Введите пароль"/>
 
-                    <Button x:Name="ButtonEnter" Content="Вход" Margin="0,0,0,8" 
-                        IsDefault="True" ToolTip="Кнопка входа" Click="ButtonEnter_Click"/>
-                    <Button x:Name="ButtonReg" Content="Регистрация" Margin="0,0,0,8" 
-                        ToolTip="Создать аккаунт" Click="ButtonReg_Click"/>
-                    <Button x:Name="ButtonGuest" Content="Продолжить как гость" Margin="0,0,0,8" 
-                        ToolTip="Посмотреть каталог без входа" Click="ButtonGuest_Click"/>
+                    <Button x:Name="ButtonEnter" Content="Вход" Margin="0,0,0,8"
+                            IsDefault="True" ToolTip="Войти в аккаунт"
+                            Click="ButtonEnter_Click" />
+                    <Button x:Name="ButtonReg" Content="Регистрация" Margin="0,0,0,8"
+                            ToolTip="Создать новый аккаунт" Click="ButtonReg_Click" />
+                    <Button x:Name="ButtonChangePass" Content="Смена пароля" Margin="0,0,0,8"
+                            ToolTip="Задать новый пароль" Click="ButtonChangePass_Click" />
+                    <Button x:Name="ButtonGuest" Content="Продолжить как гость" Margin="0"
+                            ToolTip="Посмотреть каталог без входа" Click="ButtonGuest_Click" />
                 </StackPanel>
 
 

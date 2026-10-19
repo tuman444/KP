@@ -1,4 +1,5 @@
 ﻿using OnlineCinema.Helpers;
+using OnlineCinema.Pages;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -79,19 +80,12 @@ namespace OnlineCinema
             AuthButton.Content = CurrentUser.IsLoggedIn ? CurrentUser.FullName : "Войти";
         }
 
-        private void AuthButton_Click (object sender, RoutedEventArgs e)
+        private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!CurrentUser.IsLoggedIn)
-            {
-                MainFrame.Navigate(new Pages.AuthPage());
-                return;
-            }
-            var answer = MessageBox.Show("Выти из аккаунта?", "Выход", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (answer == MessageBoxResult.Yes)
-            {
-                CurrentUser.Logout();
-                MainFrame.Navigate(new Pages.HomePage());
-            }
+            if (CurrentUser.IsLoggedIn)
+                MainFrame.Navigate(new ProfilePage());   // вошёл: личный кабинет
+            else
+                MainFrame.Navigate(new AuthPage());      // не вошёл: страница входа
         }
 
         // навигация

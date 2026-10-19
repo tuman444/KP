@@ -49,25 +49,29 @@ namespace OnlineCinema.Pages
                 return;
             }
 
-            if (!Regex.IsMatch(email, @"что-то там"))
+            if (!Regex.IsMatch(email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
-                Warn("Введите корректнй email");
+                Warn("Введите корректный email");
+                return;
             }
 
             if (pass1.Length < 6)
             {
                 Warn("Пароль должени содержать больше 6 символ");
+                return;
             }
 
             if (pass2.Length != pass1.Length)
             {
                 Warn("Пароли не совпадают");
+                return;
             }
 
             DateTime birth = DatePickerBirth.SelectedDate.Value;
             if (birth > DateTime.Today || birth < DateTime.Today.AddYears(-120))
             {
                 Warn("Введите корректнй возраст");
+                return;
             }
 
             // Запомианаем Id выбранных жанрови персон, сами объект брать нельзя
@@ -79,6 +83,7 @@ namespace OnlineCinema.Pages
                 if (db.Users.Any(u => u.email == email))
                 {
                     Warn("Пользователь с таким email уже сущетвует");
+                    return;
                 }
 
                 var user = new Users

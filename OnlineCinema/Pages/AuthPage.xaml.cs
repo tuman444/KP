@@ -147,6 +147,9 @@ namespace OnlineCinema.Pages
             NavigationService.Navigate(new Pages.HomePage());
         }
 
-        
+        private void ButtonChangePass_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService?.Navigate(new ChangePassPage());
+        }
     }
 }

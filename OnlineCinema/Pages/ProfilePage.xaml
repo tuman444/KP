@@ -1,0 +1,78 @@
+﻿<Page x:Class="OnlineCinema.Pages.ProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OnlineCinema.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Профиль"
+      Background="{DynamicResource BackgroundBrash}">
+
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Width="520" Margin="0,20">
+
+            <!-- ============ Личные данные ============ -->
+            <Border Padding="24" CornerRadius="10" Margin="0,0,0,16"
+                    Background="{DynamicResource HeaderBrush}">
+                <StackPanel>
+                    <TextBlock Text="Личный кабинет" FontSize="22pt" FontWeight="Bold" Margin="0,0,0,16" />
+
+                    <TextBlock Text="ФИО" />
+                    <TextBox x:Name="TxtName" Style="{StaticResource PlaceholderBox}"
+                             Tag="Иванов Иван Иванович" Margin="0,4,0,12"
+                             ToolTip="Ваше ФИО" />
+
+                    <TextBlock Text="Email" />
+                    <TextBox x:Name="TxtEmail" Style="{StaticResource PlaceholderBox}"
+                             Tag="name@mail.ru" Margin="0,4,0,12"
+                             ToolTip="Email используется для входа" />
+
+                    <TextBlock Text="Дата рождения" />
+                    <DatePicker x:Name="DatePickerBirth" Height="35" Margin="0,4,0,12"
+                                ToolTip="Дата рождения" />
+
+                    <!-- Роль и дату регистрации пользователь менять не может: только показываем -->
+                    <TextBlock Text="Роль" />
+                    <TextBlock x:Name="TxtRole" FontWeight="Bold" Margin="0,2,0,12" />
+                    <TextBlock Text="Дата регистрации" />
+                    <TextBlock x:Name="TxtRegDate" FontWeight="Bold" Margin="0,2,0,12" />
+
+                    <TextBlock Text="Любимые жанры (Ctrl, чтобы выбрать несколько)" />
+                    <ListBox x:Name="ListGenres" Height="110" Margin="0,4,0,12"
+                             SelectionMode="Multiple" DisplayMemberPath="name"
+                             ToolTip="Рекомендации строятся на основе ваших предпочтений" />
+
+                    <TextBlock Text="Любимые актёры и режиссёры" />
+                    <ListBox x:Name="ListPersons" Height="110" Margin="0,4,0,16"
+                             SelectionMode="Multiple" DisplayMemberPath="full_name"
+                             ToolTip="Выберите тех, чьи фильмы вам нравятся" />
+
+                    <Button Content="Сохранить изменения" Margin="0,0,0,8"
+                            ToolTip="Записать изменения в профиль" Click="ButtonSave_Click" />
+                    <Button Content="Сменить пароль" Margin="0,0,0,8"
+                            ToolTip="Перейти к смене пароля" Click="ButtonChangePass_Click" />
+                    <Button Content="Выйти из аккаунта" Margin="0"
+                            ToolTip="Завершить сеанс" Click="ButtonLogout_Click" />
+                </StackPanel>
+            </Border>
+
+            <!-- ============ Панель администратора ============ -->
+            <Border x:Name="AdminPanel" Padding="24" CornerRadius="10" Visibility="Collapsed"
+                    Background="{DynamicResource HeaderBrush}">
+                <StackPanel>
+                    <TextBlock Text="Панель администратора" FontSize="18pt" FontWeight="Bold" Margin="0,0,0,12" />
+                    <Button Content="Пользователи" Margin="0,0,0,8"
+                            ToolTip="Список зарегистрированных пользователей" Click="ButtonUsers_Click" />
+                    <Button Content="Графики и отчёты" Margin="0,0,0,8"
+                            ToolTip="Диаграммы, выгрузка в Word и Excel" Click="ButtonCharts_Click" />
+                    <!-- Заглушки: реализуем на следующем этапе -->
+                    <Button Content="Мои фильмы (скоро)" Margin="0,0,0,8"
+                            ToolTip="Список фильмов, загруженных вами" Click="ButtonStub_Click" />
+                    <Button Content="Загрузить фильм (скоро)" Margin="0"
+                            ToolTip="Добавление нового фильма в каталог" Click="ButtonStub_Click" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </ScrollViewer>
+</Page>
