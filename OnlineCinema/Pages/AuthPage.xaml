@@ -16,7 +16,7 @@
                 <TextBlock Text="Email"/>
                 <TextBox x:Name="TextBoxLogin" Height="35" 
                          VerticalContentAlignment="Center" ToolTip="Введите Email" Margin="0,4,0,12"/>
-                
+
                 <TextBlock Text="Пароль"/>
                 <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,4,0,20" 
                              HorizontalContentAlignment="Center" ToolTip="Введите пароль"/>

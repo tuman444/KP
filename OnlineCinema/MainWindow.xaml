@@ -43,11 +43,11 @@
                 <Button x:Name="AuthButton" Content="Войти" ToolTip="Вход/Личный кабинет" Click="AuthButton_Click"/>
             </StackPanel>
         </Grid>
-        
+
         <!-- Контент -->
         <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
 
-        
+
         <!--Нижняя панель-->
         <Grid Grid.Row="2" Background="{DynamicResource HeaderBrush}">
             <TextBlock x:Name="DateTimeNow" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,16,0" Foreground="{DynamicResource SecondaryTextBrush}"/>

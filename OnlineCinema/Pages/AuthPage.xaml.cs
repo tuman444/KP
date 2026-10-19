@@ -29,7 +29,7 @@ namespace OnlineCinema.Pages
             InitializeComponent();
         }
 
-        private void ButtomEnter_Click(object sender, RoutedEventArgs e)
+        private void ButtonEnter_Click(object sender, RoutedEventArgs e)
         {
             string email = TextBoxLogin.Text.Trim();
             string password = PasswordBox.Password;
@@ -74,5 +74,7 @@ namespace OnlineCinema.Pages
         {
             NavigationService.Navigate(new Pages.HomePage());
         }
+
+        
     }
 }

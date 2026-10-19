@@ -1,0 +1,50 @@
+﻿<Page x:Class="OnlineCinema.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OnlineCinema.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1000" d:DesignWidth="800"
+      Title="Регистрации"
+      Background="{DynamicResource BackgroundBrash}"
+      Loaded="Page_Loaded">
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Border Width="460" Margin="0,20" Padding="28" CornerRadius="10"
+                    HorizontalAlignment="Center" Background="{DynamicResource HeaderBrush}">
+            <StackPanel>
+                <TextBlock Text="Регистрация" FontSize="24" FontWeight="Bold" Margin="0,0,0,20" 
+                           HorizontalAlignment="Center"/>
+                <TextBlock Text="ФИО"/>
+                <TextBox x:Name="txtName" Height="35" VerticalContentAlignment="Center" Margin="0,4,0,12" ToolTip="Введите ФИО"/>
+
+                <TextBlock Text="Email"/>
+                <TextBox x:Name="txtEmail" Height="35" VerticalContentAlignment="Center" Margin="0,4,0,12" ToolTip="Введите Email"/>
+
+                <TextBlock Text="Пароль (Не менее 6 символов)"/>
+                <PasswordBox x:Name="firstPass"  Height="35" VerticalContentAlignment="Center" Margin="0,4,0,12" ToolTip="Введите пароль"/>
+
+                <TextBlock Text="Подтвердите пароль"/>
+                <PasswordBox x:Name="secondPass" Height="35" VerticalContentAlignment="Center" Margin="0,4,0,12" ToolTip="Подтвердите пароль"/>
+
+                <TextBlock Text="Дата рождения"/>
+                <DatePicker x:Name="DatePickerBirth" Height="35" Margin="0,4,0,12"/>
+
+                <TextBlock Text="Роль"/>
+                <ComboBox x:Name="ComboRole" Height="35" Margin="0,4,0,12" VerticalContentAlignment="Center" 
+                          DisplayMemberPath="name" SelectedValuePath="id"/>
+
+                <TextBlock Text="Любимые жанры (Ctrl, чтобы выбрать несколько"/>
+                <ListBox x:Name="ListGenres" Height="110" Margin="0,4,0,12" SelectionMode="Multiple" DisplayMemberPath="name"/>
+
+                <TextBlock Text="Любимые актеры (Ctrl, чтобы выбрать несколько"/>
+                <ListBox x:Name="ListPersons" Height="110" Margin="0,4,0,20" SelectionMode="Multiple" DisplayMemberPath="full_name"/>
+
+                <Button x:Name="RegisterClick" Content="Зарегистрироваться" Margin="0,0,0,8" Click="ButtonRegister_Click" IsDefault="True"/>
+                <Button x:Name="BackClick" Content="Назад" Margin="0" Click="ButtonBack_Click"/>
+            </StackPanel>
+        </Border>
+    </ScrollViewer>
+    
+</Page>
