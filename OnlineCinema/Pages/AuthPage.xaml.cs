@@ -67,7 +67,7 @@ namespace OnlineCinema.Pages
 
         private void ButtonReg_Click(object sender, RoutedEventArgs e)
         {
-            //NavigationService.Navigate(new Pages.RegistrPage());
+            NavigationService.Navigate(new Pages.RegPage());
         }
 
         private void ButtonGuest_Click(object sender, RoutedEventArgs e)

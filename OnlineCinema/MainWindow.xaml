@@ -50,7 +50,8 @@
 
         <!--Нижняя панель-->
         <Grid Grid.Row="2" Background="{DynamicResource HeaderBrush}">
-            <TextBlock x:Name="DateTimeNow" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,16,0" Foreground="{DynamicResource SecondaryTextBrush}"/>
+            <TextBlock x:Name="DateTimeNow" HorizontalAlignment="Center" 
+                       VerticalAlignment="Center" Margin="0,0,16,0" Foreground="{DynamicResource SecondaryTextBrush}"/>
         </Grid>
     </Grid>
 </Window>

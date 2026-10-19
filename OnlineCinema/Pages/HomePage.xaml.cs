@@ -99,7 +99,7 @@ namespace OnlineCinema.Pages
             {
                 MessageBox.Show("Чтобы открыть странницу фильма зайдите или зарегистрируйтесь", "Требуется вход", 
                     MessageBoxButton.OK, MessageBoxImage.Information);
-                //NavigationService?.Navigate(new Pages.AuthPage);
+                NavigationService?.Navigate(new Pages.AuthPage());
                 return;
             }
             //NavigationService.Navigate(new Pages.MoviePage);
