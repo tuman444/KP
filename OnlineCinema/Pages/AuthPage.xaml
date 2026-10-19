@@ -12,21 +12,51 @@
     <Grid>
         <Border Width="360" Padding="28" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{DynamicResource HeaderBrush}">
             <StackPanel>
-                <TextBlock Text="Вход" FontSize="24" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                <TextBlock Text="Email"/>
-                <TextBox x:Name="TextBoxLogin" Height="35" 
+                <TextBlock x:Name="TitleText" Text="Вход" FontSize="24pt" FontWeight="Bold"
+                           HorizontalAlignment="Center" Margin="0,0,0,20" />
+                <StackPanel x:Name="LoginPanel">
+                    <TextBlock Text="Email"/>
+                    <TextBox x:Name="TextBoxLogin" Height="35" 
                          VerticalContentAlignment="Center" ToolTip="Введите Email" Margin="0,4,0,12"/>
 
-                <TextBlock Text="Пароль"/>
-                <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,4,0,20" 
+                    <TextBlock Text="Пароль"/>
+                    <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,4,0,20" 
                              HorizontalContentAlignment="Center" ToolTip="Введите пароль"/>
 
-                <Button x:Name="ButtonEnter" Content="Вход" Margin="0,0,0,8" 
+                    <Button x:Name="ButtonEnter" Content="Вход" Margin="0,0,0,8" 
                         IsDefault="True" ToolTip="Кнопка входа" Click="ButtonEnter_Click"/>
-                <Button x:Name="ButtonReg" Content="Регистрация" Margin="0,0,0,8" 
+                    <Button x:Name="ButtonReg" Content="Регистрация" Margin="0,0,0,8" 
                         ToolTip="Создать аккаунт" Click="ButtonReg_Click"/>
-                <Button x:Name="ButtonGuest" Content="Продолжить как гость" Margin="0,0,0,8" 
+                    <Button x:Name="ButtonGuest" Content="Продолжить как гость" Margin="0,0,0,8" 
                         ToolTip="Посмотреть каталог без входа" Click="ButtonGuest_Click"/>
+                </StackPanel>
+
+
+                <StackPanel x:Name="CaptchaPanel" Visibility="Collapsed">
+                    <TextBlock Text="Слишком много неудачных попыток. Введите символы, которые видите ниже."
+                               TextWrapping="Wrap" Margin="0,0,0,12" />
+
+
+                    <TextBox x:Name="CaptchaText"
+                             IsReadOnly="True" Focusable="False"
+                             Height="50" FontSize="26" FontWeight="Heavy" FontStyle="Italic"
+                             Foreground="#C62828" Background="#F2F2F2"
+                             HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
+                             ContextMenu="{x:Null}"
+                             CommandManager.PreviewExecuted="Captcha_PreviewExecuted"
+                             ToolTip="Символы капчи (копировать нельзя)" />
+
+                    <TextBox x:Name="CaptchaInput"
+                             Style="{StaticResource PlaceholderBox}"
+                             Tag="Введите символы с картинки"
+                             Margin="0,12,0,12"
+                             ToolTip="Введите символы, показанные выше, с учётом регистра" />
+
+                    <Button x:Name="ButtonCaptchaOk" Content="Подтвердить" Margin="0,0,0,8"
+                            ToolTip="Проверить капчу" Click="ButtonCaptchaOk_Click" />
+                    <Button x:Name="ButtonCaptchaRefresh" Content="Обновить капчу" Margin="0"
+                            ToolTip="Показать другие символы" Click="ButtonCaptchaRefresh_Click" />
+                </StackPanel>
             </StackPanel>
         </Border>
     </Grid>
