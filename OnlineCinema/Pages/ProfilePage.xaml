@@ -7,26 +7,28 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Профиль"
+      Loaded="ProfilePage_Loaded"
+      TextElement.Foreground="{DynamicResource TextBrush}"
       Background="{DynamicResource BackgroundBrash}">
 
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel Width="520" Margin="0,20">
 
-            <!-- ============ Личные данные ============ -->
+            <!-- Личные данные -->
             <Border Padding="24" CornerRadius="10" Margin="0,0,0,16"
                     Background="{DynamicResource HeaderBrush}">
                 <StackPanel>
                     <TextBlock Text="Личный кабинет" FontSize="22pt" FontWeight="Bold" Margin="0,0,0,16" />
 
                     <TextBlock Text="ФИО" />
-                    <TextBox x:Name="TxtName" Style="{StaticResource PlaceholderBox}"
+                    <TextBox x:Name="TxtName" Style="{DynamicResource PlaceholderBox}"
                              Tag="Иванов Иван Иванович" Margin="0,4,0,12"
-                             ToolTip="Ваше ФИО" />
+                             ToolTip="Ваше ФИО" Height="35" VerticalContentAlignment="Center"/>
 
                     <TextBlock Text="Email" />
-                    <TextBox x:Name="TxtEmail" Style="{StaticResource PlaceholderBox}"
+                    <TextBox x:Name="TxtEmail" Style="{DynamicResource PlaceholderBox}"
                              Tag="name@mail.ru" Margin="0,4,0,12"
-                             ToolTip="Email используется для входа" />
+                             ToolTip="Email используется для входа" Height="35" VerticalContentAlignment="Center"/>
 
                     <TextBlock Text="Дата рождения" />
                     <DatePicker x:Name="DatePickerBirth" Height="35" Margin="0,4,0,12"
@@ -57,7 +59,7 @@
                 </StackPanel>
             </Border>
 
-            <!-- ============ Панель администратора ============ -->
+            <!-- Панель администратора  -->
             <Border x:Name="AdminPanel" Padding="24" CornerRadius="10" Visibility="Collapsed"
                     Background="{DynamicResource HeaderBrush}">
                 <StackPanel>
@@ -66,7 +68,6 @@
                             ToolTip="Список зарегистрированных пользователей" Click="ButtonUsers_Click" />
                     <Button Content="Графики и отчёты" Margin="0,0,0,8"
                             ToolTip="Диаграммы, выгрузка в Word и Excel" Click="ButtonCharts_Click" />
-                    <!-- Заглушки: реализуем на следующем этапе -->
                     <Button Content="Мои фильмы (скоро)" Margin="0,0,0,8"
                             ToolTip="Список фильмов, загруженных вами" Click="ButtonStub_Click" />
                     <Button Content="Загрузить фильм (скоро)" Margin="0"

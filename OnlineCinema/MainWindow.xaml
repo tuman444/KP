@@ -9,6 +9,8 @@
         MinHeight="600" MinWidth="900"
         WindowStartupLocation="CenterScreen"
         Background="{DynamicResource BackgroundBrash}"
+        TextElement.Foreground="{DynamicResource TextBrush}"
+        FontFamily="Open Sans, Segou UI"
         Closing="Window_Closing">
     <Grid>
         <Grid.RowDefinitions>
@@ -45,7 +47,7 @@
         </Grid>
 
         <!-- Контент -->
-        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <Frame x:Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden" Background="{DynamicResource BackgroundBrash}"/>
 
 
         <!--Нижняя панель-->

@@ -29,6 +29,8 @@ namespace OnlineCinema
         public MainWindow()
         {
             InitializeComponent();
+
+            SwitchTheme("Dictionary");
             CurrentUser.Changed += UpdateAuthButton; // кнопка в шапке реагирует на вход и выход
             UpdateAuthButton();
 
@@ -83,9 +85,9 @@ namespace OnlineCinema
         private void AuthButton_Click(object sender, RoutedEventArgs e)
         {
             if (CurrentUser.IsLoggedIn)
-                MainFrame.Navigate(new ProfilePage());   // вошёл: личный кабинет
+                MainFrame.Navigate(new Pages.ProfilePage());   // вошёл: личный кабинет
             else
-                MainFrame.Navigate(new AuthPage());      // не вошёл: страница входа
+                MainFrame.Navigate(new Pages.AuthPage());      // не вошёл: страница входа
         }
 
         // навигация
@@ -103,7 +105,7 @@ namespace OnlineCinema
         private bool RequireLogin()
         {
             if (CurrentUser.IsLoggedIn) return true; 
-            MessageBox.Show("Этот раздел доступен только для зарегстрированных пользователей", "Требуется вход", 
+            MessageBox.Show("Этот раздел доступен только для авторизованных пользователей пользователей", "Требуется вход", 
                 MessageBoxButton.OK, MessageBoxImage.Information);
             MainFrame.Navigate(new Pages.AuthPage());
             return false;

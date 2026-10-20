@@ -12,11 +12,9 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             CornerRadius="4">
                         <Grid>
-                            <!-- PART_ContentHost: сюда TextBox выводит набираемый текст -->
                             <ScrollViewer x:Name="PART_ContentHost"
                                           Margin="{TemplateBinding Padding}"
                                           VerticalAlignment="Center" />
-                            <!-- Подсказка: по умолчанию скрыта, показывается, когда Text пустой -->
                             <TextBlock x:Name="Hint"
                                        Text="{TemplateBinding Tag}"
                                        Margin="{TemplateBinding Padding}"

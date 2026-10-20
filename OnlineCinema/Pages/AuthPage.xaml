@@ -10,18 +10,27 @@
       Background="{DynamicResource BackgroundBrash}">
 
     <Grid>
-        <Border Width="360" Padding="28" CornerRadius="10" HorizontalAlignment="Center" VerticalAlignment="Center" Background="{DynamicResource HeaderBrush}">
+        <Border Width="380" Padding="28" CornerRadius="10"
+                HorizontalAlignment="Center" VerticalAlignment="Center"
+                Background="{DynamicResource HeaderBrush}"
+                TextElement.Foreground="{DynamicResource TextBrush}">
             <StackPanel>
                 <TextBlock x:Name="TitleText" Text="Вход" FontSize="24pt" FontWeight="Bold"
                            HorizontalAlignment="Center" Margin="0,0,0,20" />
-                <StackPanel x:Name="LoginPanel">
-                    <TextBlock Text="Email"/>
-                    <TextBox x:Name="TextBoxLogin" Height="35" 
-                         VerticalContentAlignment="Center" ToolTip="Введите Email" Margin="0,4,0,12"/>
 
-                    <TextBlock Text="Пароль"/>
-                    <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,4,0,20" 
-                             HorizontalContentAlignment="Center" ToolTip="Введите пароль"/>
+                <!--Панель входа -->
+                <StackPanel x:Name="LoginPanel">
+                    <TextBlock Text="Email" />
+                    <TextBox x:Name="TextBoxLogin" Height="35" VerticalContentAlignment="Center"
+                             Style="{DynamicResource PlaceholderBox}"
+                             Tag="name@mail.ru"
+                             Margin="0,4,0,12"
+                             ToolTip="Введите email, указанный при регистрации" />
+
+                    <TextBlock Text="Пароль" />
+                    <PasswordBox x:Name="PasswordBox" Height="35" Margin="0,4,0,20"
+                                 VerticalContentAlignment="Center"
+                                 ToolTip="Введите пароль" />
 
                     <Button x:Name="ButtonEnter" Content="Вход" Margin="0,0,0,8"
                             IsDefault="True" ToolTip="Войти в аккаунт"
@@ -34,11 +43,10 @@
                             ToolTip="Посмотреть каталог без входа" Click="ButtonGuest_Click" />
                 </StackPanel>
 
-
+                <!-- Панель капчи (скрыта, пока не было 3 ошибок)-->
                 <StackPanel x:Name="CaptchaPanel" Visibility="Collapsed">
                     <TextBlock Text="Слишком много неудачных попыток. Введите символы, которые видите ниже."
                                TextWrapping="Wrap" Margin="0,0,0,12" />
-
 
                     <TextBox x:Name="CaptchaText"
                              IsReadOnly="True" Focusable="False"
@@ -50,7 +58,7 @@
                              ToolTip="Символы капчи (копировать нельзя)" />
 
                     <TextBox x:Name="CaptchaInput"
-                             Style="{StaticResource PlaceholderBox}"
+                             Style="{DynamicResource PlaceholderBox}"
                              Tag="Введите символы с картинки"
                              Margin="0,12,0,12"
                              ToolTip="Введите символы, показанные выше, с учётом регистра" />
