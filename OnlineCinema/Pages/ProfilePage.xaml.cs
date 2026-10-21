@@ -177,16 +177,11 @@ namespace OnlineCinema.Pages
         // Администратор 
         // Кнопки скрыты у обычного пользователя, но роль проверяем и в коде:
         // защита не должна держаться только на скрытии элементов.
-        private void ButtonUsers_Click(object sender, RoutedEventArgs e)
-        {
-            if (!CurrentUser.IsAdmin) return;
-            //NavigationService?.Navigate(new UsersPage());
-        }
 
         private void ButtonCharts_Click(object sender, RoutedEventArgs e)
         {
             if (!CurrentUser.IsAdmin) return;
-            //NavigationService?.Navigate(new DiagrammPage());
+            NavigationService?.Navigate(new DiagrammPage());
         }
 
         private void ButtonStub_Click(object sender, RoutedEventArgs e)

@@ -1,0 +1,47 @@
+﻿<Page x:Class="OnlineCinema.Pages.DiagrammPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:OnlineCinema.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="900"
+      Title="Графики и отчеты"
+      Loaded="Page_Loaded"
+      Background="{DynamicResource BackgroundBrush}">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Графики и отчеты" FontSize="22" FontWeight="Bold" Margin="0,0,0,12"/>
+
+        <WrapPanel Grid.Row="1" Margin="0,0,0,8">
+            <TextBlock Text="Показатель" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <ComboBox x:Name="CmbMetric" Width="170" Height="35" Margin="0,0,16,0" VerticalContentAlignment="Center"
+                      ToolTip="Выберите фильтр" SelectionChanged="Param_Changed"/>
+
+            <TextBlock Text="Пользователь" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <ComboBox x:Name="CmbUser" Width="170" Height="35" VerticalContentAlignment="Center"
+                      IsEnabled="False" ToolTip="Нужендля показателя просмотры пользователя"
+                      SelectionChanged="Param_Changed"/>
+
+            <TextBlock Text="Тип диаграммы:" VerticalAlignment="Center" Margin="0,0,6,0" />
+            <ComboBox x:Name="CmbDiagram" Width="170" Height="35" Margin="0,0,16,0"
+                      DisplayMemberPath="Key" VerticalContentAlignment="Center"
+                      ToolTip="Вид диаграммы" SelectionChanged="Param_Changed" />
+
+            <Button Content="Экспорт в Excel" Margin="0,0,8,0"
+                    ToolTip="Отчёт по пользователям в Excel (лист на пользователя)"
+                    Click="ButtonExcel_Click" />
+            <Button Content="Экспорт в Word" Margin="0"
+                    ToolTip="Отчёт по пользователям в Word и PDF"
+                    Click="ButtonWord_Click" />
+        </WrapPanel>
+
+        <Grid x:Name="ChartContainer" Grid.Row="2" Margin="0,8,0,0" />
+    </Grid>
+</Page>

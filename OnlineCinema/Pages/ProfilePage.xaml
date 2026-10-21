@@ -64,8 +64,6 @@
                     Background="{DynamicResource HeaderBrush}">
                 <StackPanel>
                     <TextBlock Text="Панель администратора" FontSize="18pt" FontWeight="Bold" Margin="0,0,0,12" />
-                    <Button Content="Пользователи" Margin="0,0,0,8"
-                            ToolTip="Список зарегистрированных пользователей" Click="ButtonUsers_Click" />
                     <Button Content="Графики и отчёты" Margin="0,0,0,8"
                             ToolTip="Диаграммы, выгрузка в Word и Excel" Click="ButtonCharts_Click" />
                     <Button Content="Мои фильмы (скоро)" Margin="0,0,0,8"

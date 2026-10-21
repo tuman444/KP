@@ -13,9 +13,7 @@
       TextElement.Foreground="{DynamicResource TextBrush}">
 
 
-    <Page.Resources>
-        <helpers:PathToImageConverter x:Key="PathToImage" />
-    </Page.Resources>
+
 
     <Grid>
         <Grid.RowDefinitions>
