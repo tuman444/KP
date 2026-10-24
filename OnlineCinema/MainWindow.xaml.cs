@@ -69,11 +69,20 @@ namespace OnlineCinema
 
         private void SwitchTheme(string dictionaryFileName)
         {
-            var uri = new Uri($"Styles/{dictionaryFileName}.xaml", UriKind.Relative);
-            var dict = Application.LoadComponent(uri) as ResourceDictionary;
+            // Source задаёт адрес файла, и словарь сам загружается из него.
+            var newTheme = new ResourceDictionary
+            {
+                Source = new Uri($"Styles/{dictionaryFileName}.xaml", UriKind.Relative)
+            };
 
-            Application.Current.Resources.MergedDictionaries.Clear();
-            Application.Current.Resources.MergedDictionaries.Add(dict);
+            var merged = Application.Current.Resources.MergedDictionaries;
+
+            
+            var oldTheme = merged.FirstOrDefault(d => d.Source != null &&
+                                                     d.Source.OriginalString.Contains("Dictionary"));
+            if (oldTheme != null) merged.Remove(oldTheme);
+
+            merged.Insert(0, newTheme);
         }
 
         // кнопка входа/личного кабинета
